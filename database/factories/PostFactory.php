@@ -20,7 +20,7 @@ class PostFactory extends Factory
         return [
             'body' => $this->faker->paragraphs(3, ','),
             'slug' => $this->faker->slug(),
-            'title' => $this->faker->title(),
+            'title' => $this->faker->words(5, ' '),
             'category' => Category::factory(),
             'admin' => Admin::factory(),
         ];
