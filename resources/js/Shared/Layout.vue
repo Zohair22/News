@@ -4,7 +4,7 @@
     </Head>
     <Navigation />
     <section class="p-5">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-6xl mx-auto">
             <slot />
         </div>
     </section>

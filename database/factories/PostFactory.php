@@ -4,8 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Admin;
 use App\Models\Category;
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -19,8 +17,9 @@ class PostFactory extends Factory
     {
         return [
             'body' => $this->faker->paragraphs(3, ','),
-            'slug' => $this->faker->slug(),
+            'slug' => $this->faker->unique()->slug(),
             'title' => $this->faker->words(5, ' '),
+            'excerpt' => $this->faker->paragraph(),
             'category' => Category::factory(),
             'admin' => Admin::factory(),
         ];
