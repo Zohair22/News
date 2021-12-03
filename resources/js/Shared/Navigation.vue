@@ -1,7 +1,9 @@
 <template>
     <nav class="flex items-center justify-between flex-wrap bg-teal-500 px-6 py-3">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <span class="font-semibold text-xl tracking-tight transition duration-700 transform hover:-translate-y-1">News</span>
+            <Link href="/" class="font-semibold text-xl tracking-tight transition duration-700 transform hover:-translate-y-1">
+                News
+            </Link>
         </div>
         <div class="block lg:hidden">
             <button
@@ -19,28 +21,42 @@
             :class="open ? '' : 'hidden'"
         >
             <div class="text-sm lg:flex-grow">
-                <a href="#responsive-header" class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700
-                    transform hover:-translate-y-1 mr-4">
-                    Docs
-                </a>
-                <a href="#responsive-header" class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700
-                    transform hover:-translate-y-1 mr-4">
-                    Examples
-                </a>
-                <a href="#responsive-header" class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700
-                    transform hover:-translate-y-1">
-                    Blog
-                </a>
-            </div>
-            <div>
-                <a
-                    href="#"
-                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white
-                    hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 transition duration-700
-                    transform hover:-translate-y-1"
+                <Link
+                    href="#responsive-header"
+                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700 transform hover:-translate-y-1 mr-4"
                 >
-                    Download
-                </a>
+                    Docs
+                </Link>
+
+                <Link
+                    href="#responsive-header"
+                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700 transform hover:-translate-y-1 mr-4"
+                >
+                    Examples
+                </Link>
+
+                <Link
+                    href="#responsive-header"
+                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700 transform hover:-translate-y-1"
+                >
+                    Blog
+                </Link>
+
+            </div>
+            <div class="text-sm">
+                <Link
+                    href="/login"
+                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white hover:text-bold transition duration-700 transform hover:-translate-y-1"
+                >
+                    Login
+                </Link>
+                <span class="text-white mx-3">/</span>
+                <Link
+                    href="/signup"
+                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white hover:text-bold transition duration-700 transform hover:-translate-y-1"
+                >
+                    Signup
+                </Link>
             </div>
         </div>
     </nav>

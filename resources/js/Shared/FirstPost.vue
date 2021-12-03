@@ -4,8 +4,8 @@
 
         <div class="lg:py-6 lg:px-5 lg:flex md:flex">
             <div class="lg:flex-1 md:flex-1 lg:mr-8 md:mr-8">
-                <Link>
-                    <img src="storage/images/3q3fbyUo82l2xoyMbhkr2yyLoGIHtg4Xe9VDuB1D.png"
+                <Link :href="'/post/' + post.slug">
+                    <img src="/storage/images/3q3fbyUo82l2xoyMbhkr2yyLoGIHtg4Xe9VDuB1D.png"
                          alt="Blog Post illustration" class="lg:rounded-xl rounded-b rounded-4xl">
                 </Link>
             </div>
@@ -22,22 +22,27 @@
                     </div>
                 </header>
 
-                <div class="text-sm mt-2 space-y-4">
+                <div class="text-sm text-gray-500 mt-2 mb-6">
+                    <h1 class="text-lg font-bold text-gray-800 mb-1">Post Excerpt</h1>
                     {{ post.excerpt }}
                 </div>
 
+
                 <footer class="flex justify-between items-center mt-8">
                     <div class="flex items-center text-sm">
-                        <img src="storage/images/lary-avatar.svg" alt="Lary avatar">
+                        <img src="/storage/images/lary-avatar.svg" alt="Lary avatar">
                         <div class="ml-3">
                             <h5 class="font-bold"><a href="#">Name Here</a></h5>
                         </div>
                     </div>
 
                     <div class="lg:block">
-                        <a href="#"
-                           class="text-xs hover:text-white font-semibold bg-teal-200 transition duration-1000 hover:bg-teal-500 rounded-full py-2 px-8"
-                        >Read More</a>
+                        <Link
+                            :href="'/post/'+post.slug"
+                            class="text-xs hover:text-white font-semibold bg-teal-200 transition duration-1000 hover:bg-teal-500 rounded-full py-2 px-8"
+                        >
+                            Read More
+                        </Link>
                     </div>
                 </footer>
             </div>

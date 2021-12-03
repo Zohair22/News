@@ -6,7 +6,8 @@
                 v-if="link.url"
                 :href="link.url"
                 v-html="link.label"
-                  :class="{'font-bold text-blue-500 text-lg' : link.active}"/>
+                :class="{'font-bold text-blue-500 text-lg' : link.active}"
+            />
         </template>
     </div>
 </template>

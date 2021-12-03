@@ -14,4 +14,11 @@ class PostController extends Controller
         $posts = Post::paginate(9);
         return Inertia::render('Welcome', compact('posts'));
     }
+
+    public function view($slug) : Response
+    {
+        $post = Post::where('slug', $slug)->first();
+        $comments = $post->comments()->get();
+        return Inertia::render('PostView', compact('post', 'comments'));
+    }
 }

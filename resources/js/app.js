@@ -1,4 +1,4 @@
-import "tailwindcss/tailwind.css"
+
 import { createApp, h } from 'vue'
 import {createInertiaApp, Head, Link} from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
@@ -19,7 +19,7 @@ createInertiaApp({
             .component('Head', Head)
             .mount(el)
     },
-    title: (title) => `${title}` ? `${title} - News` : `News`
+    title: (title) => `${title}` ?? 'News'
 })
 
 
