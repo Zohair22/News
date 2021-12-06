@@ -43,8 +43,7 @@
             </div>
         </div>
     </article>
-    <CommentPost :posted="posted" :auth="auth" :errors="errors"></CommentPost>
-
+    <CommentPost  :posted="posted" :auth="auth" :errors="errors"></CommentPost>
 </template>
 
 <script setup>

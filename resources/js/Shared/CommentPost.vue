@@ -3,7 +3,6 @@
         <h1 class="text-2xl text-gray-700 font-bold mb-5 lg:text-center"> Comments </h1>
         <div v-for="comment in posted.comments">
             <div class="bg-gray-50 lg:flex lg:justify-between rounded-4xl p-5">
-
                 <div>
                     <div class="flex flex-1 items-center text-sm">
                         <img src="/storage/images/lary-avatar.svg" alt="Lary avatar" width="35" height="25">
@@ -18,7 +17,7 @@
             <hr class="my-5">
         </div>
 
-        <form @submit.prevent="submit">
+        <form v-if="auth.user" @submit.prevent="submit">
             <div class="mb-4">
                 <label class="block text-gray-700 text-xs font-bold mb-2 uppercase" for="comment">
                     <input
@@ -46,6 +45,13 @@
                 Comment
             </button>
         </form>
+
+        <div v-else class="text-center text-gray-600">
+            Please
+            <Link class="text-blue-500 text-bold underline" :href="'/login'">Login</Link>
+            to Add a new Comment
+        </div>
+
     </div>
 </template>
 
@@ -62,7 +68,7 @@ const user = props.auth.user
 let form = useForm({
     body: '',
     post_id: posted.id,
-    user_id: user.id,
+    user_id: user ? user.id : '',
 });
 
 let submit = () => {
