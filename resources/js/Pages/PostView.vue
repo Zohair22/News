@@ -36,7 +36,7 @@
                     <div class="flex items-center text-sm">
                         <img src="/storage/images/lary-avatar.svg" alt="Lary avatar">
                         <div class="ml-3">
-                            <h5 class="font-bold"><a href="#">Name Here</a></h5>
+                            <h5 class="font-bold"><a href="#">{{ posted.admin.name }}</a></h5>
                         </div>
                     </div>
                 </footer>
@@ -47,16 +47,13 @@
 </template>
 
 <script setup>
-
 import CommentPost from "../Shared/CommentPost";
 
-let props = defineProps({
+defineProps({
     'posted' : Object,
     'auth' : Object,
     'errors': Object,
-
 })
-
 </script>
 
 <style scoped>

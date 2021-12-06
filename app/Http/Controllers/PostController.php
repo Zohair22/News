@@ -11,13 +11,13 @@ class PostController extends Controller
 {
     public function index() : Response
     {
-        $posts = Post::paginate(9);
+        $posts = Post::paginate(12);
         return Inertia::render('Welcome', compact('posts'));
     }
 
     public function view($slug) : Response
     {
-        $posted = Post::where('slug', $slug)->with('comments')->first();
+        $posted = Post::where('slug', $slug)->first();
         return Inertia::render('PostView', compact('posted'));
     }
 }

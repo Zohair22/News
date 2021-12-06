@@ -27,17 +27,17 @@
                 </div>
 
                 <footer class="flex justify-between items-center lg:mt-8 mt-4">
-                    <div class="flex items-center text-sm">
+                    <div class="flex items-center text-sm max-w-14">
                         <img src="/storage/images/lary-avatar.svg" alt="Lary avatar">
-                        <div class="ml-3">
-                            <h5 class="font-bold"><Link href="#">This Name</Link></h5>
+                        <div class="ml-1">
+                            <h5 class="font-bold"><Link href="#">{{ post.admin.name }}</Link></h5>
                         </div>
                     </div>
 
                     <div class="lg:block">
                         <Link
                             :href="'/post/'+post.slug"
-                            class="text-xs hover:text-white font-semibold bg-teal-200 transition duration-1000 hover:bg-teal-500 rounded-full py-2 px-8"
+                            class="text-xs hover:text-white font-semibold bg-teal-200 transition duration-1000 hover:bg-teal-500 rounded-full py-2 px-3"
                         >
                             Read More
                         </Link>
