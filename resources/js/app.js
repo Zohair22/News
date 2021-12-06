@@ -1,7 +1,6 @@
-
 import { createApp, h } from 'vue'
-import {createInertiaApp, Head, Link} from '@inertiajs/inertia-vue3'
-import { InertiaProgress } from '@inertiajs/progress'
+import {app, createInertiaApp, Head, Link} from '@inertiajs/inertia-vue3';
+import {InertiaProgress} from "@inertiajs/progress";
 import Layout from "./Shared/Layout";
 
 createInertiaApp({
@@ -12,7 +11,7 @@ createInertiaApp({
         }
         return page;
     },
-    setup({ el, App, props, plugin }) {
+    setup({ el, App, props, plugin}) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .component('Link', Link)
@@ -20,12 +19,14 @@ createInertiaApp({
             .mount(el)
     },
     title: (title) => `${title}` ?? 'News'
-})
-
-
+});
 InertiaProgress.init({
     delay: 250,
-    color: 'blue',
+    color: 'teal',
     includeCSS: true,
     showSpinner: true,
 })
+
+
+
+

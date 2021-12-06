@@ -6794,10 +6794,6 @@ video {
   max-height: 32rem;
 }
 
-.max-h-post {
-  max-height: 48rem;
-}
-
 .max-h-px {
   max-height: 1px;
 }
@@ -6837,12 +6833,6 @@ video {
 .min-h-screen {
   min-height: 100vh;
 }
-
-.min-h-post {
-  min-height: 42rem;
-}
-
-
 
 .w-0 {
   width: 0px;
@@ -159483,4 +159473,3 @@ video {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-

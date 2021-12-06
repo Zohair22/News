@@ -2,7 +2,7 @@
     <Head>
         <title>Home</title>
     </Head>
-        <FirstPost :post="posts.data[0]"></FirstPost>
+        <FirstPost :post="posts.data[0]" ></FirstPost>
         <div class="grid grid-cols-6 gap-8">
             <section
                 v-for="(post, index) in posts.data"

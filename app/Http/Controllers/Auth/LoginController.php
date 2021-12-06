@@ -1,33 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use Inertia\Response;
+use function back;
+use function redirect;
 
 class LoginController
 {
-    public function index() : Response
+    public function create() : Response
     {
-        return Inertia::render('Login');
+        return Inertia::render('Auth/Login');
     }
 
-    public function login(Request $request) : RedirectResponse
+    public function store(Request $request) : RedirectResponse
     {
-        $attributes = $request->validate([
+        $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-        $user = User::where('email', $attributes['email'])->first();
 
-        if (isset($user) && Hash::check($attributes['password'], $user->password))
-        {
-            auth()->login($user);
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended();
         }

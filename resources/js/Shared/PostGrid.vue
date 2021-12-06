@@ -1,7 +1,7 @@
 <template>
 
     <article
-        class="border border-teal-300 rounded-4xl bg-gray-50 transition duration-700 transform hover:-translate-y-5 hover:bg-gray-200 relative max-h-post min-h-post">
+        class="border border-teal-300 rounded-4xl bg-gray-50 transition duration-700 transform hover:-translate-y-5 hover:bg-gray-200">
             <div>
                 <Link :href="'/post/'+post.slug">
                     <img src="/storage/images/3q3fbyUo82l2xoyMbhkr2yyLoGIHtg4Xe9VDuB1D.png"

@@ -17,8 +17,7 @@ class PostController extends Controller
 
     public function view($slug) : Response
     {
-        $post = Post::where('slug', $slug)->first();
-        $comments = $post->comments()->get();
-        return Inertia::render('PostView', compact('post', 'comments'));
+        $posted = Post::where('slug', $slug)->with('comments')->first();
+        return Inertia::render('PostView', compact('posted'));
     }
 }

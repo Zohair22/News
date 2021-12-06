@@ -13,7 +13,7 @@ class Post extends Model
 
     public function comments() : HasMany
     {
-        return $this->hasMany(Comment::class, 'post');
+        return $this->hasMany(Comment::class, 'post_id');
     }
 
     public function getCreatedAtAttribute($date) : string

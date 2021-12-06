@@ -44,27 +44,38 @@
 
             </div>
             <div class="text-sm">
-                <Link
-                    href="/login"
-                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white hover:text-bold transition duration-700 transform hover:-translate-y-1"
-                >
-                    Login
-                </Link>
-                <span class="text-white mx-3">/</span>
-                <Link
-                    href="/signup"
-                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white hover:text-bold transition duration-700 transform hover:-translate-y-1"
-                >
-                    Signup
-                </Link>
+                <div v-if="$page.props.auth.user">
+                    <Link
+                        href="/logout"
+                        class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white hover:text-bold transition duration-700 transform hover:-translate-y-1"
+                    >
+                        Logout
+                    </Link>
+                </div>
+                <div v-else>
+                    <Link
+                        href="/login"
+                        class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white hover:text-bold transition duration-700 transform hover:-translate-y-1"
+                    >
+                        Login
+                    </Link>
+                    <span class="text-white mx-3">/</span>
+                    <Link
+                        href="/signup"
+                        class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white hover:text-bold transition duration-700 transform hover:-translate-y-1"
+                    >
+                        Signup
+                    </Link>
+                </div>
             </div>
         </div>
     </nav>
+
 </template>
 
 <script setup>
 defineProps({
-    open: false
+    open: false,
 })
 </script>
 
