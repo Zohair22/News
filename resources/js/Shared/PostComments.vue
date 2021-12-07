@@ -4,10 +4,10 @@
         <div v-for="comment in post.comments">
             <div class="lg:flex rounded-4xl bg-gray-50 py-3 px-5">
                 <div>
-                    <div class="flex flex-1 text-sm mr-6">
-                        <img src="/storage/images/lary-avatar.svg" alt="Lary avatar" width="35" height="25">
+                    <div class="flex flex-1 text-xs mr-6">
+                        <img src="/storage/images/lary-avatar.svg" alt="Lary avatar" width="30" height="30">
                         <div class="ml-2">
-                            <h5 class="font-bold mt-1"><a href="#">Name Here</a></h5>
+                            <h5 class="font-bold mt-1"><a href="#">{{ comment.user.name }}</a></h5>
                         </div>
                     </div>
                 </div>

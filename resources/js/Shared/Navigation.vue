@@ -61,7 +61,7 @@
                     </Link>
                     <span class="text-white mx-3">/</span>
                     <Link
-                        href="/signup"
+                        href="/register"
                         class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white hover:text-bold transition duration-700 transform hover:-translate-y-1"
                     >
                         Signup

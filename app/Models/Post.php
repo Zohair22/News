@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Post extends Model
 {
     use HasFactory;
-    protected $with = ['comments', 'admin'];
+    protected $with = ['comments', 'admin', 'category'];
 
     public function comments() : HasMany
     {
@@ -21,6 +21,11 @@ class Post extends Model
     public function admin() : BelongsTo
     {
         return $this->belongsTo(Admin::class, 'admin');
+    }
+
+    public function category() : BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category');
     }
 
     public function getCreatedAtAttribute($date) : string

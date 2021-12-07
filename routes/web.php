@@ -24,15 +24,18 @@ Route::middleware('guest')->group(function ()
 {
     Route::get('/login', [LoginController::class, 'create']);
     Route::post('/login', [LoginController::class, 'store']);
+
+    Route::get('/register', [LoginController::class, 'register']);
+    Route::post('/register', [LoginController::class, 'signup']);
 });
 
 
-//Route::middleware('guest')->group(function ()
-//{
-    Route::get('/', [PostController::class, 'index']);
-    Route::get('/post/{post:slug}', [PostController::class, 'view']);
 
-    Route::post('/new/comment', [CommentController::class, 'create']);
+Route::get('/', [PostController::class, 'index']);
+Route::get('/post/{post:slug}', [PostController::class, 'view']);
+Route::post('/new/comment', [CommentController::class, 'create']);
 
+Route::middleware('auth')->group(function ()
+{
     Route::get('/logout', [LoginController::class, 'logout']);
-//});
+});

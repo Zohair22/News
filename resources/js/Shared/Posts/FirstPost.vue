@@ -1,6 +1,6 @@
 <template>
     <article
-        class="border border-teal-300 rounded-4xl lg:p-5 bg-gray-50 my-8 transition duration-700 transform hover:-translate-y-5 hover:bg-gray-200"
+        class="border border-teal-300 rounded-4xl p-5 bg-gray-50 my-8 transition duration-700 transform hover:-translate-y-5 hover:bg-gray-200"
     >
         <div class="lg:py-6 lg:px-5 lg:flex md:flex">
             <div class="lg:flex-1 md:flex-1 lg:mr-8 md:mr-8">
