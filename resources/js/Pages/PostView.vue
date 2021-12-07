@@ -5,7 +5,7 @@
             <div class="lg:flex-1 lg:mr-8">
                 <img
                     src="/storage/images/3q3fbyUo82l2xoyMbhkr2yyLoGIHtg4Xe9VDuB1D.png"
-                    alt="Blog posted illustration"
+                    alt="Blog post illustration"
                     class="lg:rounded-xl rounded-b rounded-4xl"
                 >
             </div>
@@ -13,22 +13,22 @@
                 <header class="mt-0">
 
                     <div class="mt-4">
-                        <h1 class="text-2xl text-green-800 uppercase" v-html="posted.title"></h1>
+                        <h1 class="text-2xl text-green-800 uppercase" v-html="post.title"></h1>
                         <span class="mt-2 block text-gray-400 text-xs">
-                            Published <time>{{ posted.created_at }}</time>
+                            Published <time>{{ post.created_at }}</time>
                         </span>
                     </div>
                 </header>
 
                 <div class="text-sm text-gray-500 mt-2 mb-6">
-                    <h1 class="text-lg font-bold text-gray-800 mb-1">posted Excerpt</h1>
-                    {{ posted.excerpt }}
+                    <h1 class="text-lg font-bold text-gray-800 mb-1">Post Excerpt</h1>
+                    {{ post.excerpt }}
                 </div>
 
                 <div class="mt-2">
                     <h1 class="text-lg font-bold text-gray-800 mb-1">posted Body</h1>
                     <p class="text-gray-600 space-y-5">
-                        {{ posted.body }}
+                        {{ post.body }}
                     </p>
                 </div>
 
@@ -36,21 +36,21 @@
                     <div class="flex items-center text-sm">
                         <img src="/storage/images/lary-avatar.svg" alt="Lary avatar">
                         <div class="ml-3">
-                            <h5 class="font-bold"><a href="#">{{ posted.admin.name }}</a></h5>
+                            <h5 class="font-bold"><a href="#">{{ post.admin.name }}</a></h5>
                         </div>
                     </div>
                 </footer>
             </div>
         </div>
     </article>
-    <CommentPost  :posted="posted" :auth="auth" :errors="errors"></CommentPost>
+    <CommentPost  :post="post" :auth="auth" :errors="errors"></CommentPost>
 </template>
 
 <script setup>
 import CommentPost from "../Shared/CommentPost";
 
 defineProps({
-    'posted' : Object,
+    'post' : Object,
     'auth' : Object,
     'errors': Object,
 })

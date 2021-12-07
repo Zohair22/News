@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-4xl mx-auto border bg-white p-5 rounded-4xl border-teal-300 mt-6">
         <h1 class="text-2xl text-gray-700 font-bold mb-5 lg:text-center"> Comments </h1>
-        <div v-for="comment in posted.comments">
+        <div v-for="comment in post.comments">
             <div class="lg:flex rounded-4xl bg-gray-50 py-3 px-5">
                 <div>
                     <div class="flex flex-1 text-sm mr-6">
@@ -55,15 +55,15 @@
 import {useForm} from "@inertiajs/inertia-vue3";
 
 let props = defineProps({
-    'posted' : Object,
+    'post' : Array,
     'auth' : Object,
     'errors': Object,
 })
-const posted = props.posted
+const post = props.post
 const user = props.auth.user
 let form = useForm({
     body: '',
-    post_id: posted.id,
+    post_id: post.id,
     user_id: user ? user.id : '',
 });
 

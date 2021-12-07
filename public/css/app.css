@@ -10389,6 +10389,16 @@ video {
           animation: bounce 1s infinite;
 }
 
+@keyframes bounceInLeft {
+    100%{
+        transform: translateX(5px);
+    }
+}
+
+.animate-bounceInLeft {
+    animation: bounceInLeft 0.6s linear infinite;
+}
+
 .cursor-auto {
   cursor: auto;
 }

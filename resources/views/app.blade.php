@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <script src="{{ mix('/js/vendor.js') }}" defer></script>
     <script src="{{ mix('/js/manifest.js') }}" defer></script>
     <script src="{{ mix('/js/app.js') }}" defer></script>
