@@ -21,8 +21,8 @@
 
 <script setup>
 import Pagination from "../Shared/Pagination";
-import PostGrid from "../Shared/PostGrid";
-import FirstPost from "../Shared/FirstPost";
+import PostGrid from "../Shared/Posts/PostGrid";
+import FirstPost from "../Shared/Posts/FirstPost";
 defineProps({
     'posts' : Object
 })

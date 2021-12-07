@@ -7,12 +7,9 @@
         <div class="py-8 px-5">
             <div class="flex flex-col justify-between">
                 <post-header :post="post" />
-                <div class="text-sm text-gray-500 mt-2 mb-6">
-                    <h1 class="text-lg font-bold text-gray-800 mb-1">Post Excerpt</h1>
-                    {{ post.excerpt }}
-                </div>
+                <post-body :post="post" :body-active="!bodyActive"/>
+                <post-footer :post="post" />
             </div>
-            <post-footer :post="post" />
         </div>
     </article>
 
@@ -20,12 +17,14 @@
 </template>
 
 <script setup>
-import PostFooter from "../Shared/PostFooter";
-import PostHeader from "../Shared/PostHeader";
+import PostFooter from "./PostFooter";
+import PostHeader from "./PostHeader";
 import PostPhoto from "./PostPhoto";
+import PostBody from "./PostBody";
 
 defineProps({
     'post' : Array,
+    'bodyActive' : Boolean,
 })
 </script>
 

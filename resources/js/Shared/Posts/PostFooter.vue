@@ -9,6 +9,7 @@
         </div>
         <div
             class="lg:block col-span-3"
+            v-if="!bottomActive"
         >
             <Link
                 :href="'/post/'+post.slug"
@@ -24,6 +25,7 @@
 <script setup>
 defineProps({
     post: Array,
+    bottomActive: Boolean,
 })
 </script>
 
