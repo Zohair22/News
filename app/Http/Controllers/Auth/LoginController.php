@@ -20,14 +20,21 @@ class LoginController
         return Inertia::render('Auth/Login');
     }
 
-    public function store(Request $request) : RedirectResponse
+    public function store(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        $user = User::where('email',$credentials['email'])->first();
+        if (isset($user)
+            && Hash::check(
+                $credentials['password'],
+                $user->password
+            )
+        ) {
+            auth()->login($user);
             $request->session()->regenerate();
             return redirect()->intended();
         }
@@ -36,6 +43,8 @@ class LoginController
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
+
+
 
     public function register() : Response
     {

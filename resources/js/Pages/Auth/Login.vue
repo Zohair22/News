@@ -5,7 +5,7 @@
     <main class="max-w-md mx-auto grid place-items-center min-h-screen">
         <section class="border p-6 shadow-xl rounded-3xl w-full m-5 bg-gray-50">
             <h1 class="text-3xl text-teal-500 text-center mb-4">Login</h1>
-            <form @submit.prevent="submit">
+            <form @submit.prevent="submitLogin">
                 <div class="mb-4">
                     <label class="block text-gray-700 text-xs font-bold mb-2 uppercase" for="email">
                         Email
@@ -75,7 +75,7 @@ defineProps({
     errors: Object,
 });
 
-let submit = () => {
+let submitLogin = () => {
     form.post('/login');
 }
 </script>
