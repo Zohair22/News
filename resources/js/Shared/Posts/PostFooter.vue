@@ -13,7 +13,7 @@
         >
             <Link
                 :href="'/post/'+post.slug"
-                class="text-center duration-700 text-xs hover:text-white font-semibold bg-teal-200 transition hover:bg-teal-500 rounded-full py-2 px-5"
+                class="text-center duration-700 text-xs hover:text-white font-semibold bg-teal-300 transition hover:bg-teal-600 rounded-full py-2 px-5"
             >
                 Read More
                 <i class="fas fa-arrow-right ml-1 animate-bounceInLeft"></i>
