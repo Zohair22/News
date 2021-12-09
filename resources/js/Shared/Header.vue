@@ -33,17 +33,22 @@
                     <div
                         id="dropdown"
                         :class="open ? '' : 'hidden'"
-                        class="py-1 absolute items-center mt-1 bg-white rounded-xl w-full z-50 overflow-auto max-h-52"
+                        class="py-1 absolute items-center text-left mt-1 bg-white rounded-xl w-full z-50 overflow-auto max-h-52"
                     >
+                        <Link
+                            href='/'
+                            class="text-sm hover:bg-gray-50 border-b hover:text-teal-800 text-teal-400 block px-4 py-2"
+                            v-text="'All'"
+                        />
+
                         <ul class="py-1" aria-labelledby="dropdownButton">
                             <li v-for="category in categories">
                                 <Link
-                                    :href="'/news?category='+category.name"
+                                    :href="'/?category='+category.name"
                                     class="text-sm hover:bg-gray-50 border-b hover:text-teal-800 text-teal-400 block px-4 py-2"
                                     v-model="filters.category"
-                                >
-                                    {{ category.name }}
-                                </Link>
+                                    v-text="category.name"
+                                />
                             </li>
                         </ul>
                     </div>
@@ -51,7 +56,7 @@
             </div>
             <!-- Search -->
             <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-4xl px-3 py-2">
-                <input type="hidden" v-model="category" name="category">
+                <input type="hidden" v-model="filters.category" name="category">
                 <input
                     v-model="search"
                     type="text"
@@ -80,14 +85,14 @@ let search = ref(props.filters.search);
 let category = ref(props.filters.category);
 
 watch(search, debounce(function (value) {
-    Inertia.get('/news',{search: value}, {
+    Inertia.get('/',{search: value}, {
         preserveState: true,
         replace: true
     });
 }, 300));
 
 watch(category, debounce(function (value) {
-    Inertia.get('/news?category='+category,{category: value}, {
+    Inertia.get('/',{category: value}, {
         preserveState: true,
         replace: true
     });

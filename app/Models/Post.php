@@ -41,22 +41,21 @@ class Post extends Model
             return $query->where(
                 function ($query) use ($search)
                 {
-                    return $query->where('title', 'like', '%'.$search.'%');
+                    return $query
+                        ->where('title', 'like', '%'.$search.'%')
+                        ->orWhere('excerpt', 'like', '%'.$search.'%');
                 }
             );
         });
 
         $query->when($filters['category'] ?? false, function ($query, $category)
-            {
-                return $query->whereHas('category',
-                    function ($query) use ($category)
-                    {
-                        return $query->where('name', $category);
-                    }
-                );
-            });
+        {
+            return $query->whereHas('category',
+                function ($query) use ($category)
+                {
+                    return $query->where('name', $category);
+                }
+            );
+        });
     }
 }
-//->latest()
-//    ->paginate(12)
-//    ->withQueryString(),
