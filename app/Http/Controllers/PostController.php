@@ -16,8 +16,8 @@ class PostController extends Controller
             ->filter(request(['search', 'category']))
             ->paginate(12)
             ->withQueryString();
-        ddd($posts);
-        $filters = Request::only(['search', 'category']);
+//        ddd($posts);
+        $filters = Request::all(['search', 'category']);
         $categories = Category::all();
         return Inertia::render('Welcome', compact('posts', 'filters', 'categories'));
     }

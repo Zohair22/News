@@ -21,12 +21,12 @@ class Post extends Model
 
     public function admin() : BelongsTo
     {
-        return $this->belongsTo(Admin::class, 'admin');
+        return $this->belongsTo(Admin::class, 'admin_id');
     }
 
     public function category() : BelongsTo
     {
-        return $this->belongsTo(Category::class, 'category');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function getCreatedAtAttribute($date) : string
