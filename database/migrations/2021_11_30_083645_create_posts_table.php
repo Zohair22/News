@@ -20,8 +20,10 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('excerpt');
             $table->string('slug')->unique();
-            $table->foreignId('admin')->constrained('admins')->cascadeOnDelete();
-            $table->foreignId('category')->constrained('categories')->cascadeOnDelete();
+            $table->foreignId('admin_id')->constrained('admins')
+                ->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories')
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }

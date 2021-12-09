@@ -1,7 +1,8 @@
 <template>
     <nav class="flex items-center justify-between flex-wrap bg-teal-500 px-6 py-3">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <Link href="/" class="font-semibold text-xl tracking-tight transition duration-700 transform hover:-translate-y-1">
+            <Link href="/news"
+                  class="font-semibold text-xl tracking-tight transition duration-700 transform hover:-translate-y-1">
                 News
             </Link>
         </div>

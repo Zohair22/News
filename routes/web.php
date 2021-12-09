@@ -31,7 +31,7 @@ Route::middleware('guest')->group(function ()
 
 
 
-Route::get('/', [PostController::class, 'index']);
+Route::get('/news', [PostController::class, 'index']);
 Route::get('/post/{post:slug}', [PostController::class, 'view']);
 Route::post('/new/comment', [CommentController::class, 'create']);
 

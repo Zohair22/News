@@ -16,7 +16,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'admin' => Admin::factory(),
+            'admin_id' => Admin::factory(),
         ];
     }
 }

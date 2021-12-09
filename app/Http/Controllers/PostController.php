@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -11,8 +12,14 @@ class PostController extends Controller
 {
     public function index() : Response
     {
-        $posts = Post::paginate(12);
-        return Inertia::render('Welcome', compact('posts'));
+        $posts = Post::latest()
+            ->filter(request(['search', 'category']))
+            ->paginate(12)
+            ->withQueryString();
+        ddd($posts);
+        $filters = Request::only(['search', 'category']);
+        $categories = Category::all();
+        return Inertia::render('Welcome', compact('posts', 'filters', 'categories'));
     }
 
     public function view($slug) : Response

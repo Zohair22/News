@@ -20,8 +20,8 @@ class PostFactory extends Factory
             'slug' => $this->faker->unique()->slug(),
             'title' => $this->faker->words(5, ' '),
             'excerpt' => $this->faker->paragraph(),
-            'category' => Category::factory(),
-            'admin' => Admin::factory(),
+            'category_id' => Category::factory(),
+            'admin_id' => Admin::factory(),
         ];
     }
 }
