@@ -46,7 +46,6 @@
                                 <Link
                                     :href="'/?category='+category.name"
                                     class="text-sm hover:bg-gray-50 border-b hover:text-teal-800 text-teal-400 block px-4 py-2"
-                                    v-model="filters.category"
                                     v-text="category.name"
                                 />
                             </li>
@@ -56,7 +55,6 @@
             </div>
             <!-- Search -->
             <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-4xl px-3 py-2">
-                <input type="hidden" v-model="filters.category" name="category">
                 <input
                     v-model="search"
                     type="text"
@@ -70,7 +68,6 @@
 </template>
 
 <script setup>
-
 import {ref, watch} from "vue";
 import {Inertia} from "@inertiajs/inertia";
 import debounce from "lodash/debounce";
@@ -82,17 +79,9 @@ let props = defineProps({
 });
 
 let search = ref(props.filters.search);
-let category = ref(props.filters.category);
 
 watch(search, debounce(function (value) {
     Inertia.get('/',{search: value}, {
-        preserveState: true,
-        replace: true
-    });
-}, 300));
-
-watch(category, debounce(function (value) {
-    Inertia.get('/',{category: value}, {
         preserveState: true,
         replace: true
     });
