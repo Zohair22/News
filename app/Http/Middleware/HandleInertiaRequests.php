@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use Inertia\Middleware;
 
 class
@@ -47,6 +48,9 @@ HandleInertiaRequests extends Middleware
                 return [
                     'post' => $request->post() ? : null,
                 ];
+            },
+            'errors' => function () {
+                return session()->get('errors') ? session()->get('errors')->getBag('default')->getMessages() : (object) [];
             },
         ]);
     }

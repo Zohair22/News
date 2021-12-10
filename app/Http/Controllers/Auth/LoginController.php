@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
-use function back;
-use function redirect;
 
 class LoginController
 {
@@ -20,7 +18,7 @@ class LoginController
         return Inertia::render('Auth/Login');
     }
 
-    public function store(Request $request)
+    public function store(Request $request) : RedirectResponse
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
@@ -43,8 +41,6 @@ class LoginController
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
-
-
 
     public function register() : Response
     {
