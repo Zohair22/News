@@ -1,12 +1,8 @@
 <template>
-    <div
-        class="grid grid-cols-6 gap-8"
-    >
+    <div class="grid grid-cols-6 gap-8" >
 
         <section
-            v-for="(post, index) in posts.data.filter(x => x !== null)"
-            v-if="posts !== null"
-            track-by="id"
+            v-for="(post, index) in posts.data"
             :class="
                 [
                     index < 3 ? 'lg:col-span-3 md:col-span-3 col-span-6 ' : 'lg:col-span-2 md:col-span-3 col-span-6',
