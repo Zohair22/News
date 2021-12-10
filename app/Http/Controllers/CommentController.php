@@ -19,4 +19,10 @@ class CommentController extends Controller
         Comment::create($attributes);
         return back();
     }
+    public function destroy($id) : RedirectResponse
+    {
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+        return back();
+    }
 }

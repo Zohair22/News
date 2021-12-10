@@ -35,6 +35,8 @@ Route::get('/', [PostController::class, 'index']);
 Route::get('/post/{post:slug}', [PostController::class, 'view']);
 Route::post('/new/comment', [CommentController::class, 'create']);
 
+Route::get('/delete/comment/{comment}', [CommentController::class, 'destroy']);
+
 Route::middleware('auth')->group(function ()
 {
     Route::get('/logout', [LoginController::class, 'logout']);

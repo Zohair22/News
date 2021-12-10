@@ -27,7 +27,7 @@ class LoginController
             'password' => ['required'],
         ]);
 
-        $user = User::where('email',$credentials['email'])->first();
+        $user = User::where('email', $credentials['email'])->first();
         if (isset($user)
             && Hash::check(
                 $credentials['password'],
