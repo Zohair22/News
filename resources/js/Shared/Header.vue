@@ -39,6 +39,8 @@
                             href='/'
                             class="text-sm hover:bg-gray-50 border-b hover:text-teal-800 text-teal-400 block px-4 py-2"
                             v-text="'All'"
+                            preserve-state
+                            replace
                         />
 
                         <ul class="py-1" aria-labelledby="dropdownButton">
@@ -47,6 +49,8 @@
                                     :href="'/?category='+category.name"
                                     class="text-sm hover:bg-gray-50 border-b hover:text-teal-800 text-teal-400 block px-4 py-2"
                                     v-text="category.name"
+                                    preserve-state
+                                    replace
                                 />
                             </li>
                         </ul>

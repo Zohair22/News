@@ -1,8 +1,11 @@
 <template>
     <nav class="flex items-center justify-between flex-wrap bg-teal-500 px-6 py-3">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <Link href="/"
-                  class="font-semibold text-xl tracking-tight transition duration-700 transform hover:-translate-y-1">
+            <Link
+                href="/"
+                preserve-scroll
+                class="font-semibold text-xl tracking-tight transition duration-700 transform hover:-translate-y-1"
+            >
                 News
             </Link>
         </div>
@@ -24,25 +27,10 @@
             <div class="text-sm lg:flex-grow">
                 <Link
                     href="#responsive-header"
-                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700 transform hover:-translate-y-1 mr-4"
+                    class="hidden block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700 transform hover:-translate-y-1 mr-4"
                 >
                     Docs
                 </Link>
-
-                <Link
-                    href="#responsive-header"
-                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700 transform hover:-translate-y-1 mr-4"
-                >
-                    Examples
-                </Link>
-
-                <Link
-                    href="#responsive-header"
-                    class="block mt-4 inline-block lg:mt-0 text-teal-200 hover:text-white transition duration-700 transform hover:-translate-y-1"
-                >
-                    Blog
-                </Link>
-
             </div>
             <div class="text-sm">
                 <div v-if="$page.props.auth.user">
