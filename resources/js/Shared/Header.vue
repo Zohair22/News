@@ -2,23 +2,34 @@
     <header class="mt-5 text-center rounded-4xl p-5">
 
         <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4">
+
+            <!-- Search -->
+            <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-4xl px-3 py-2">
+                <input
+                    v-model="search"
+                    type="text"
+                    name="search"
+                    placeholder="Search..."
+                    class="border py-1 px-3 rounded-2xl shadow-xl w-full"
+                >
+            </div>
+
             <!--  Category -->
-            <div class="relative lg:flex lg:inline-flex lg:items-center bg-gray-100 rounded-xl">
+            <div class="relative lg:flex lg:inline-flex lg:items-center rounded-xl">
                 <div>
                     <button
                         @click="open = !open"
                         id="dropdownButton"
                         data-dropdown-toggle="dropdown"
-                        class="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
+                        class="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
                         type="button"
                     >
                         Categories
                         <svg
-                            class="w-4 h-4 ml-2"
+                            class="w-4 h-4 ml-2 right-0"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
                         >
                             <path
                                 stroke-linecap="round"
@@ -57,16 +68,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Search -->
-            <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-4xl px-3 py-2">
-                <input
-                    v-model="search"
-                    type="text"
-                    name="search"
-                    placeholder="Search..."
-                    class="border py-1 px-3 rounded-2xl shadow-xl"
-                >
-            </div>
+
         </div>
     </header>
 </template>
