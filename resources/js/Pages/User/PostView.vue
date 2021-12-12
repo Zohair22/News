@@ -16,11 +16,11 @@
 </template>
 
 <script setup>
-import CommentPost from "../Shared/PostComments";
-import PostFooter from "../Shared/Posts/PostFooter";
-import PostHeader from "../Shared/Posts/PostHeader";
-import PostBody from "../Shared/Posts/PostBody"
-import PostPhoto from "../Shared/Posts/PostPhoto";
+import CommentPost from "../../Shared/PostComments";
+import PostFooter from "../../Shared/Posts/PostFooter";
+import PostHeader from "../../Shared/Posts/PostHeader";
+import PostBody from "../../Shared/Posts/PostBody"
+import PostPhoto from "../../Shared/Posts/PostPhoto";
 
 defineProps({
     'post' : Object,

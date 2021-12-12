@@ -19,7 +19,7 @@
                     ></div>
                 </div>
 
-                <div v-if="user && user.id === comment.user_id" >
+                <div v-if="user && user.email === comment.user.email" >
                     <button
                         @click.prevent="deleteComment(comment)"
                         class="far fa-trash-alt text-red-500"

@@ -175,39 +175,47 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./Auth/Login": [
-		"./resources/js/Pages/Auth/Login.vue",
-		"resources_js_Pages_Auth_Login_vue"
+	"./Admin/Auth/Login": [
+		"./resources/js/Pages/Admin/Auth/Login.vue",
+		"resources_js_Pages_Admin_Auth_Login_vue"
 	],
-	"./Auth/Login.vue": [
-		"./resources/js/Pages/Auth/Login.vue",
-		"resources_js_Pages_Auth_Login_vue"
+	"./Admin/Auth/Login.vue": [
+		"./resources/js/Pages/Admin/Auth/Login.vue",
+		"resources_js_Pages_Admin_Auth_Login_vue"
 	],
-	"./Auth/Register": [
-		"./resources/js/Pages/Auth/Register.vue",
-		"resources_js_Pages_Auth_Register_vue"
-	],
-	"./Auth/Register.vue": [
-		"./resources/js/Pages/Auth/Register.vue",
-		"resources_js_Pages_Auth_Register_vue"
-	],
-	"./PostView": [
-		"./resources/js/Pages/PostView.vue",
-		"resources_js_Pages_PostView_vue"
-	],
-	"./PostView.vue": [
-		"./resources/js/Pages/PostView.vue",
-		"resources_js_Pages_PostView_vue"
-	],
-	"./Welcome": [
-		"./resources/js/Pages/Welcome.vue",
+	"./Index": [
+		"./resources/js/Pages/Index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Welcome_vue"
+		"resources_js_Pages_Index_vue"
 	],
-	"./Welcome.vue": [
-		"./resources/js/Pages/Welcome.vue",
+	"./Index.vue": [
+		"./resources/js/Pages/Index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Welcome_vue"
+		"resources_js_Pages_Index_vue"
+	],
+	"./User/Auth/Login": [
+		"./resources/js/Pages/User/Auth/Login.vue",
+		"resources_js_Pages_User_Auth_Login_vue"
+	],
+	"./User/Auth/Login.vue": [
+		"./resources/js/Pages/User/Auth/Login.vue",
+		"resources_js_Pages_User_Auth_Login_vue"
+	],
+	"./User/Auth/Register": [
+		"./resources/js/Pages/User/Auth/Register.vue",
+		"resources_js_Pages_User_Auth_Register_vue"
+	],
+	"./User/Auth/Register.vue": [
+		"./resources/js/Pages/User/Auth/Register.vue",
+		"resources_js_Pages_User_Auth_Register_vue"
+	],
+	"./User/PostView": [
+		"./resources/js/Pages/User/PostView.vue",
+		"resources_js_Pages_User_PostView_vue"
+	],
+	"./User/PostView.vue": [
+		"./resources/js/Pages/User/PostView.vue",
+		"resources_js_Pages_User_PostView_vue"
 	]
 };
 function webpackAsyncContext(req) {

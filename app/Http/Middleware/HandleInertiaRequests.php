@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Inertia\Middleware;
 
 class
@@ -24,7 +24,7 @@ HandleInertiaRequests extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
-    public function version(Request $request)
+    public function version(Request $request) : ?string
     {
         return parent::version($request);
     }
@@ -41,7 +41,12 @@ HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'auth' => function () use ($request) {
                 return [
-                    'user' => $request->user() ? : null,
+                    'user' => $request->user('web') ? : null,
+                ];
+            },
+            'admin' => function () use ($request) {
+                return [
+                    'admin' => $request->user('admin') ? : null,
                 ];
             },
             'posts' => function () use ($request) {

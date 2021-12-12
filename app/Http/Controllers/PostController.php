@@ -16,15 +16,14 @@ class PostController extends Controller
             ->filter(request(['search', 'category']))
             ->paginate(12)
             ->withQueryString();
-//        ddd($posts);
         $filters = Request::all(['search', 'category']);
         $categories = Category::all();
-        return Inertia::render('Welcome', compact('posts', 'filters', 'categories'));
+        return Inertia::render('Index', compact('posts', 'filters', 'categories'));
     }
 
     public function view($slug) : Response
     {
         $post = Post::where('slug', $slug)->first();
-        return Inertia::render('PostView', compact('post'));
+        return Inertia::render('User/PostView', compact('post'));
     }
 }

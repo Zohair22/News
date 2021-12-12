@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
@@ -24,14 +25,21 @@ git push
 // ******** Admin *******
 Route::middleware('guest:admin')->group(function ()
 {
-    Route::get('/signIn', [LoginController::class, 'create']);
-    Route::post('/signIn', [LoginController::class, 'store']);
+    Route::get('/signIn', [AdminController::class, 'create']);
+    Route::post('/signIn', [AdminController::class, 'store']);
 
-    Route::post('/signUp', [LoginController::class, 'signup']);
+    Route::post('/signUp', [AdminController::class, 'signup']);
+});
+
+// ******** User *******
+
+Route::middleware('web')->group(function ()
+{
+    Route::get('/', [PostController::class, 'index']);
+    Route::get('/post/{post:slug}', [PostController::class, 'view']);
 });
 
 
-// ******** User *******
 Route::middleware('guest:web')->group(function ()
 {
     Route::get('/login', [LoginController::class, 'create']);
@@ -41,15 +49,10 @@ Route::middleware('guest:web')->group(function ()
     Route::post('/register', [LoginController::class, 'signup']);
 });
 
-
-
-Route::get('/', [PostController::class, 'index']);
-Route::get('/post/{post:slug}', [PostController::class, 'view']);
-Route::post('/new/comment', [CommentController::class, 'create']);
-
-Route::get('/delete/comment/{comment}', [CommentController::class, 'destroy']);
-
-Route::middleware('auth')->group(function ()
+Route::middleware('auth:web')->group(function ()
 {
+    Route::post('/new/comment', [CommentController::class, 'create']);
+    Route::get('/delete/comment/{comment}', [CommentController::class, 'destroy']);
+
     Route::get('/logout', [LoginController::class, 'logout']);
 });

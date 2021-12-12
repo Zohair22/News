@@ -2,7 +2,6 @@
     <Head>
         <title>Home</title>
     </Head>
-
     <Header :filters="filters" :categories="categories" />
     <FirstPost v-if="posts.data[0]" :post="posts.data[0]"></FirstPost>
     <Posts :posts="posts"/>
