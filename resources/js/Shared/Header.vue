@@ -19,6 +19,7 @@
                 <div>
                     <button
                         @click="open = !open"
+                        @blur="open"
                         id="dropdownButton"
                         data-dropdown-toggle="dropdown"
                         class="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
@@ -50,6 +51,7 @@
                             href='/'
                             class="text-sm hover:bg-gray-50 border-b hover:text-teal-800 text-teal-400 block px-4 py-2"
                             v-text="'All'"
+                            @click="open = !open"
                             preserve-state
                             replace
                         />
@@ -57,6 +59,7 @@
                         <ul class="py-1" aria-labelledby="dropdownButton">
                             <li v-for="category in categories">
                                 <Link
+                                    @click="open = !open"
                                     :href="'/?category='+category.name"
                                     class="text-sm hover:bg-gray-50 border-b hover:text-teal-800 text-teal-400 block px-4 py-2"
                                     v-text="category.name"
