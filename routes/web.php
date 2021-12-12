@@ -20,7 +20,19 @@ git commit -m "existing file"
 git push
 
 */
-Route::middleware('guest')->group(function ()
+
+// ******** Admin *******
+Route::middleware('guest:admin')->group(function ()
+{
+    Route::get('/signIn', [LoginController::class, 'create']);
+    Route::post('/signIn', [LoginController::class, 'store']);
+
+    Route::post('/signUp', [LoginController::class, 'signup']);
+});
+
+
+// ******** User *******
+Route::middleware('guest:web')->group(function ()
 {
     Route::get('/login', [LoginController::class, 'create']);
     Route::post('/login', [LoginController::class, 'store']);

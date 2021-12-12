@@ -6,7 +6,7 @@ use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
