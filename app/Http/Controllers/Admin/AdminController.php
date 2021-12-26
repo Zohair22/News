@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -13,6 +15,17 @@ use Inertia\Response;
 
 class AdminController extends Controller
 {
+    public function index() : Response
+    {
+        $posts = Post::latest()
+            ->filter(request(['search', 'category']))
+            ->paginate(12)
+            ->withQueryString();
+        $filters = \Illuminate\Support\Facades\Request::all(['search', 'category']);
+        $categories = Category::all();
+        return Inertia::render('Admin', compact('posts', 'filters', 'categories'));
+    }
+
     public function create() : Response
     {
         return Inertia::render('Admin/Auth/Login');
@@ -33,7 +46,7 @@ class AdminController extends Controller
             )
         ) {
             auth('admin')->login($Admin);
-            return redirect()->intended();
+            return redirect('/admin');
         }
 
         return back()->withErrors([

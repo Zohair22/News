@@ -1,7 +1,7 @@
 import { createApp, h } from 'vue'
-import {app, createInertiaApp, Head, Link} from '@inertiajs/inertia-vue3';
+import {createInertiaApp, Head, Link} from '@inertiajs/inertia-vue3';
 import {InertiaProgress} from "@inertiajs/progress";
-import Layout from "./Shared/Layout";
+import Layout from "./Shared/User/Layout";
 
 createInertiaApp({
     resolve: async name => {
@@ -18,7 +18,7 @@ createInertiaApp({
             .component('Head', Head)
             .mount(el)
     },
-    title: (title) => `${title}` ?? 'News'
+    title: (title) => `${title}` ?? 'News',
 });
 InertiaProgress.init({
     delay: 250,

@@ -41,12 +41,8 @@ HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'auth' => function () use ($request) {
                 return [
-                    'user' => $request->user('web') ? : null,
-                ];
-            },
-            'admin' => function () use ($request) {
-                return [
                     'admin' => $request->user('admin') ? : null,
+                    'user'  => $request->user('web') ? : null,
                 ];
             },
             'posts' => function () use ($request) {

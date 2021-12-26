@@ -17,10 +17,10 @@
 
 
 <script setup>
-import PostFooter from "./PostFooter";
 import PostPhoto from "./PostPhoto";
 import PostHeader from "./PostHeader";
 import PostBody from "./PostBody";
+import PostFooter from "./PostFooter";
 defineProps({
     'post' : Array,
     bodyActive: Boolean

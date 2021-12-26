@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Home</title>
+        <title>UserHome</title>
     </Head>
     <Header :filters="filters" :categories="categories" />
     <FirstPost v-if="posts.data[0]" :post="posts.data[0]"></FirstPost>
@@ -16,15 +16,18 @@
 </template>
 
 <script setup>
-import Pagination from "../Shared/Pagination"
-import FirstPost from "../Shared/Posts/FirstPost";
-import Posts from "../Shared/Posts";
-import Header from "../Shared/Header";
-defineProps({
+import Pagination from "../Shared/User/Pagination"
+import FirstPost from "../Shared/User/Posts/FirstPost";
+import Posts from "../Shared/User/Posts";
+import Header from "../Shared/User/Header";
+
+let props = defineProps({
     'posts' : Object,
+    'auth' : Object,
     'filters': Object,
     'categories': Object,
 })
+let user  =  props.auth.user;
 </script>
 
 <style scoped>

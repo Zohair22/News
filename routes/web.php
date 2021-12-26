@@ -31,18 +31,23 @@ Route::middleware('guest:admin')->group(function ()
     Route::post('/signUp', [AdminController::class, 'signup']);
 });
 
-// ******** User *******
+Route::middleware('auth:admin')->group(function ()
+{
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/logoutAdmin', [AdminController::class, 'logout']);
+});
 
+
+// ******** User *******
 Route::middleware('web')->group(function ()
 {
     Route::get('/', [PostController::class, 'index']);
     Route::get('/post/{post:slug}', [PostController::class, 'view']);
 });
 
-
 Route::middleware('guest:web')->group(function ()
 {
-    Route::get('/login', [LoginController::class, 'create']);
+    Route::get('/login', [LoginController::class, 'create'])->name('login');
     Route::post('/login', [LoginController::class, 'store']);
 
     Route::get('/register', [LoginController::class, 'register']);

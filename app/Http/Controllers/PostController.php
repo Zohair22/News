@@ -18,7 +18,7 @@ class PostController extends Controller
             ->withQueryString();
         $filters = Request::all(['search', 'category']);
         $categories = Category::all();
-        return Inertia::render('Index', compact('posts', 'filters', 'categories'));
+        return Inertia::render('User', compact('posts', 'filters', 'categories'));
     }
 
     public function view($slug) : Response
