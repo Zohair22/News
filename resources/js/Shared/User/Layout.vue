@@ -2,7 +2,7 @@
     <Head>
         <title>News</title>
     </Head>
-    <Navigation :user="user" />
+    <Navigation :user="auth.user" />
     <section class="p-5">
         <div class="max-w-6xl mx-auto">
             <slot />
@@ -18,8 +18,7 @@ import Navigation from "./Navigation";
 export default {
     components: { Navigation, Head },
     props : {
-        admin: Object,
-        user: Array,
+        auth: Object,
     }
 };
 </script>

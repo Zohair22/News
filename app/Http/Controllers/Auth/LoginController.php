@@ -32,8 +32,8 @@ class LoginController
                 $user->password
             )
         ) {
-            auth()->login($user);
             $request->session()->regenerate();
+            auth('web')->login($user);
             return redirect()->intended();
         }
 

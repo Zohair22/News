@@ -39,7 +39,7 @@ Route::middleware('auth:admin')->group(function ()
 
 
 // ******** User *******
-Route::middleware('web')->group(function ()
+Route::middleware('auth:web')->group(function ()
 {
     Route::get('/', [PostController::class, 'index']);
     Route::get('/post/{post:slug}', [PostController::class, 'view']);
