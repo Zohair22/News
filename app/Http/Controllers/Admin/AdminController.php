@@ -28,6 +28,8 @@ class AdminController extends Controller
 
     public function create() : Response
     {
+        $this->middleware('guest:admin');
+
         return Inertia::render('Admin/Auth/Login');
     }
 

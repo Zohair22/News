@@ -27,7 +27,6 @@ Route::middleware('guest:admin')->group(function ()
 {
     Route::get('/signIn', [AdminController::class, 'create']);
     Route::post('/signIn', [AdminController::class, 'store']);
-
     Route::post('/signUp', [AdminController::class, 'signup']);
 });
 
@@ -37,13 +36,14 @@ Route::middleware('auth:admin')->group(function ()
     Route::get('/logoutAdmin', [AdminController::class, 'logout']);
 });
 
+    Route::get('/post/{post:slug}', [PostController::class, 'view']);
 
 // ******** User *******
-Route::middleware('auth:web')->group(function ()
-{
-    Route::get('/', [PostController::class, 'index']);
-    Route::get('/post/{post:slug}', [PostController::class, 'view']);
-});
+
+//Route::middleware(['auth'])->group(function ()
+//{
+//    Route::get('/post/{post:slug}', [PostController::class, 'view']);
+//});
 
 Route::middleware('guest:web')->group(function ()
 {
@@ -56,6 +56,7 @@ Route::middleware('guest:web')->group(function ()
 
 Route::middleware('auth:web')->group(function ()
 {
+    Route::get('/', [PostController::class, 'index']);
     Route::post('/new/comment', [CommentController::class, 'create']);
     Route::get('/delete/comment/{comment}', [CommentController::class, 'destroy']);
 

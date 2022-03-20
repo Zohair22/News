@@ -1,4 +1,4 @@
-<template :admin="admin">
+<template>
     <Head>
         <title>Admin</title>
     </Head>
