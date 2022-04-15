@@ -19,7 +19,7 @@
                     ></div>
                 </div>
 
-                <div v-if="user && user.email === comment.user.email" >
+                <div v-if="user && user.id === comment.user.id" >
                     <button
                         @click.prevent="deleteComment(comment)"
                         class="far fa-trash-alt text-red-500"
@@ -61,31 +61,33 @@
 </template>
 
 <script setup>
-import {useForm} from "@inertiajs/inertia-vue3";
-import {Inertia} from "@inertiajs/inertia";
+    import {useForm} from "@inertiajs/inertia-vue3";
+    import {Inertia} from "@inertiajs/inertia";
 
-let props = defineProps({
-    'post' : Array,
-    'auth' : Object,
-    'errors': Object,
-})
-const post = props.post
-const user = props.auth.user
-let form = useForm({
-    body: '',
-    post_id: post.id,
-    user_id: user ? user.id : '',
-});
-
-let submit = () => {
-    form.post('/new/comment', { preserveScroll: true, preserveState: false });
-}
-let deleteComment = (comment) => {
-    Inertia.get(`/delete/comment/${comment.id}`, {
-        preserveScroll: true,
-        onBefore: () => confirm('Are you sure you want to delete this comment?')
+    let props = defineProps({
+        'post' : Array,
+        'auth' : Object,
+        'errors': Object,
     })
-}
+
+    const post = props.post
+    const user = props.auth.user
+
+    let form = useForm({
+        body: '',
+        post_id: post.id,
+        user_id: user ? user.id : '',
+    });
+
+    let submit = () => {
+        form.post('/new/comment', { preserveScroll: true, preserveState: false });
+    }
+    let deleteComment = (comment) => {
+        Inertia.get(`/delete/comment/${comment.id}`, {
+            preserveScroll: true,
+            onBefore: () => confirm('Are you sure you want to delete this comment?')
+        })
+    }
 </script>
 
 <style scoped>

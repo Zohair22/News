@@ -16,9 +16,12 @@ class CommentController extends Controller
             'post_id' => 'required',
         ]);
         $attributes['user_id'] = auth()->id();
-        Comment::create($attributes);
-        return back();
+
+        ddd(auth()->id());
+//        Comment::create($attributes);
+//        return back();
     }
+
     public function destroy($id) : RedirectResponse
     {
         $comment = Comment::findOrFail($id);
